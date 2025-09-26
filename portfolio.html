@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>김경민 - 전자공학과 포트폴리오</title>
+    <meta name="description" content="하드웨어-소프트웨어 융합에 강점을 가진 전자공학과 학생 김경민의 포트폴리오">
+    <meta name="keywords" content="김경민, 전자공학, 임베디드, Python, 3D프린터, 센서, 제어">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="김경민 - 전자공학과 포트폴리오">
+    <meta property="og:description" content="하드웨어-소프트웨어 융합에 강점을 가진 전자공학과 학생 김경민의 포트폴리오">
+    <meta property="og:type" content="website">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --text-light: #9ca3af;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --bg-accent: #f3f4f6;
+            --border-color: #e5e7eb;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #1d4ed8 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(90deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.3) 100%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.4;
+        }
+
+        .header-bg-left {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                url('UnderwaterDroneGeneinnoTitan150M01_08.jpgC11AA40B-9D9F-478B-B962-2A38D5BCA0FALarge.jpg') center/cover;
+            opacity: 0.8;
+            z-index: 1;
+        }
+
+        .header-bg-right {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                url('fdgjhvs.png') center/cover;
+            opacity: 0.8;
+            z-index: 1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid white;
+            margin: 0 auto 20px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .name {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .title {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .contact-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Navigation */
+        .nav {
+            background: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-list {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-item {
+            margin: 0 20px;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 20px 0;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Main Content */
+        .main {
+            padding: 60px 0;
+        }
+
+        .section {
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--text-primary);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        #education .section-title::after {
+            background: #8B0000;
+            height: 1px;
+            box-shadow: 0 2px 0 0 #8B0000;
+        }
+
+        #skills .section-title::after {
+            background: #4A1A4A;
+            height: 2px;
+            box-shadow: 0 4px 0 0 #4A1A4A;
+        }
+
+        /* Profile Section */
+        .profile-container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--shadow-lg);
+            border: 4px solid var(--primary-color);
+            margin-bottom: 40px;
+        }
+
+        .profile-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: var(--bg-secondary);
+            border-radius: 15px;
+            border: 2px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .profile-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .profile-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .profile-number {
+            background: transparent;
+            color: black;
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            border: 1px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .profile-content {
+            flex: 1;
+        }
+
+        .profile-content h3 {
+            color: var(--text-primary);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .profile-content p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: 1rem;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+
+        .education-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid #8B0000;
+            outline: 3px solid #8B0000;
+            outline-offset: -6px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .education-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .education-period {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .education-details {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .education-details ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .education-details li {
+            margin-bottom: 5px;
+        }
+
+        /* Project Section */
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 40px;
+            transition: transform 0.3s ease;
+            border: 6px solid #4A1A4A;
+            position: relative;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            right: 3px;
+            bottom: 3px;
+            border: 1px dashed #4A1A4A;
+            border-radius: 17px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-header {
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                url('6chyqmkhw4l71.jpg') center/cover;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .project-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: airFlow 3s ease-in-out infinite;
+        }
+
+        @keyframes airFlow {
+            0% {
+                left: -100%;
+            }
+            50% {
+                left: 100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+
+        .project-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-meta {
+            opacity: 0.9;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-content {
+            padding: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .project-description {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        .project-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .detail-section h4 {
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .detail-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .detail-section li {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .detail-section li:last-child {
+            border-bottom: none;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .tech-tag {
+            background: var(--bg-accent);
+            color: var(--text-primary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            border: 6px solid #4A1A4A;
+            position: relative;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            right: 3px;
+            bottom: 3px;
+            border: 1px dashed #4A1A4A;
+            border-radius: 12px;
+            pointer-events: none;
+        }
+
+        .skill-category h3 {
+            color: var(--text-primary);
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .skill-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skill-list li {
+            padding: 10px 0;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Coursework Section */
+        .coursework-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 
+                var(--shadow),
+                0 0 0 3px var(--accent-color);
+            border-top: 4px solid var(--accent-color);
+        }
+
+        .course-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .course-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Soft Skills Section */
+        .soft-skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .soft-skill-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 
+                inset 0 8px 0 rgba(255, 255, 255, 0.8),
+                inset 0 -8px 0 rgba(0, 0, 0, 0.1),
+                0 8px 16px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: none;
+        }
+
+        .soft-skill-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .soft-skill-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .soft-skill-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .soft-skill-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Objective Section */
+        .objective-card {
+            background: linear-gradient(90deg, #8B0000 20%, #6E6E6E 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 
+                inset 0 8px 0 rgba(255, 255, 255, 0.2),
+                inset 0 -8px 0 rgba(0, 0, 0, 0.3),
+                0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .objective-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            color: white;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Keywords Section */
+        .keywords-container {
+            background: #000000;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .keywords-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .keyword-tag {
+            background: white;
+            color: black;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: transform 0.3s ease;
+        }
+
+        .keyword-tag:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-primary);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-text {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-link:hover {
+            opacity: 1;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .name {
+                font-size: 2rem;
+            }
+
+            .title {
+                font-size: 1.2rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-list {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-item {
+                margin: 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .profile-card,
+            .project-content {
+                padding: 25px;
+            }
+
+            .profile-container {
+                padding: 25px;
+            }
+
+            .profile-item {
+                margin-bottom: 20px;
+                padding: 15px;
+            }
+
+            .education-grid,
+            .skills-grid,
+            .coursework-grid,
+            .soft-skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-details {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 40px 0;
+            }
+
+            .profile-image {
+                width: 120px;
+                height: 120px;
+                font-size: 36px;
+            }
+
+            .name {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .profile-item,
+            .project-content {
+                padding: 20px;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-bg-left"></div>
+        <div class="header-bg-right"></div>
+        <div class="container">
+            <div class="header-content">
+                <div class="profile-image">
+                    <img src="my-notion-face-transparent (3).png" alt="김경민 프로필">
+                </div>
+                <h1 class="name">김경민</h1>
+                <p class="title">전자공학과 1학년 | 하드웨어-소프트웨어 융합 전문가</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                        </svg>
+                        <span>neoartmin@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span>국립한밭대학교</span>
+                    </div>
+                    <div class="contact-item">
+                        <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                        </svg>
+                        <span>010-6299-5881</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="#profile" class="nav-link">프로필</a></li>
+                <li class="nav-item"><a href="#education" class="nav-link">학력</a></li>
+                <li class="nav-item"><a href="#projects" class="nav-link">프로젝트</a></li>
+                <li class="nav-item"><a href="#skills" class="nav-link">기술 역량</a></li>
+                <li class="nav-item"><a href="#coursework" class="nav-link">관련 과목</a></li>
+                <li class="nav-item"><a href="#soft-skills" class="nav-link">소프트 스킬</a></li>
+                <li class="nav-item"><a href="#objective" class="nav-link">목표</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Profile Section -->
+            <section id="profile" class="section">
+                <h2 class="section-title">프로필</h2>
+                <div class="profile-container">
+                    <div class="profile-item">
+                        <div class="profile-number">1</div>
+                        <div class="profile-content">
+                            <h3>하드웨어-소프트웨어 융합 전문가</h3>
+                            <p>전자공학과 1학년으로 하드웨어와 소프트웨어를 함께 다루는 능력을 가지고 있습니다.</p>
+                        </div>
+                    </div>
+                    <div class="profile-item">
+                        <div class="profile-number">2</div>
+                        <div class="profile-content">
+                            <h3>처음부터 끝까지 개발 경험</h3>
+                            <p>개인 프로젝트로 <strong>파이썬 기반 3D 프린터 환경 통제 장치</strong>를 설계·제작·코딩까지 혼자서 완성하여 <strong>A+</strong>를 받았습니다.</p>
+                        </div>
+                    </div>
+                    <div class="profile-item">
+                        <div class="profile-number">3</div>
+                        <div class="profile-content">
+                            <h3>전문 기술 능력</h3>
+                            <p>센서 연결, 제어 로직, 회로/케이스 설계, 발표·문서화까지 전체 개발 과정을 경험했습니다.</p>
+                        </div>
+                    </div>
+                    <div class="profile-item">
+                        <div class="profile-number">4</div>
+                        <div class="profile-content">
+                            <h3>실용적 문제 해결</h3>
+                            <p>문제를 정리하고 빠르게 만들고 확인하는 실용적 방법으로 복잡한 기술 문제를 체계적으로 해결합니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education Section -->
+            <section id="education" class="section">
+                <h2 class="section-title">학력</h2>
+                <div class="education-grid">
+                    <div class="education-card">
+                        <h3 class="education-title">국립한밭대학교</h3>
+                        <p class="education-period">2025 – 현재 (1학년)</p>
+                        <div class="education-details">
+                            <p><strong>전공:</strong> 전자공학과</p>
+                            <p><strong>주요 수강:</strong> 공학설계입문, 물리학, 미적분(선형대수 독학 병행)</p>
+                            <p><strong>학습 특징:</strong> 질문–피드백 기반 누적 학습, 개념 이해 → 암기 → 적용의 체계적 방법론</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="section">
+                <h2 class="section-title">프로젝트</h2>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">파이썬 기반 3D 프린터 환경 통제 장치</h3>
+                        <p class="project-meta">2025 · 1주 · 개인(1인)</p>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">
+                            프린팅 품질 향상을 위한 작업 환경(온도/습도/풍량 등) 모니터링 및 자동 제어 시스템을 설계·제작·코딩까지 단독으로 수행한 프로젝트입니다.
+                        </p>
+                        <div class="project-details">
+                            <div class="detail-section">
+                                <h4>🎯 목적</h4>
+                                <ul>
+                                    <li>프린팅 품질 향상을 위한 작업 환경 모니터링</li>
+                                    <li>온도/습도/풍량 등 환경 변수 자동 제어</li>
+                                    <li>사용자 조작 최소화 UI 설계</li>
+                                </ul>
+                            </div>
+                            <div class="detail-section">
+                                <h4>🔧 핵심 구현</h4>
+                                <ul>
+                                    <li>센서 데이터 실시간 수집/가공</li>
+                                    <li>임계 조건 기반 제어 로직(팬/히터 등) 구동</li>
+                                    <li>노이즈/신호무결성 고려한 기초 회로 구성</li>
+                                    <li>전원 여유 설계 및 3D 케이스 설계</li>
+                                </ul>
+                            </div>
+                            <div class="detail-section">
+                                <h4>🏆 성과</h4>
+                                <ul>
+                                    <li>과목 <strong>A+</strong> 획득</li>
+                                    <li>발표/문서화 우수 평가</li>
+                                    <li>HW–SW <strong>E2E 개발 역량</strong> 입증</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">센서 인터페이스</span>
+                            <span class="tech-tag">액추에이터 제어</span>
+                            <span class="tech-tag">기초 회로/PCB</span>
+                            <span class="tech-tag">3D CAD</span>
+                            <span class="tech-tag">납땜/조립/테스트</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="section">
+                <h2 class="section-title">기술 역량</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>💻 프로그래밍</h3>
+                        <ul class="skill-list">
+                            <li>Python (하드웨어 제어, 데이터 처리, 간단 UI)</li>
+                            <li>실시간 제어 로직 구현</li>
+                            <li>센서 데이터 처리 및 분석</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>🔧 펌웨어/임베디드</h3>
+                        <ul class="skill-list">
+                            <li>마이크로컨트롤러 기초</li>
+                            <li>센서 인터페이스</li>
+                            <li>실시간 제어 로직</li>
+                            <li>하드웨어-소프트웨어 연동</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>⚡ 회로/PCB</h3>
+                        <ul class="skill-list">
+                            <li>회로 설계</li>
+                            <li>기본 레이아웃/배선</li>
+                            <li>노이즈 저감·신호 무결성 기초</li>
+                            <li>전원 설계</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>🎨 CAD/제작</h3>
+                        <ul class="skill-list">
+                            <li>3D 모델링 (케이스)</li>
+                            <li>납땜·배선·하우징</li>
+                            <li>기능 검증 테스트</li>
+                            <li>제품 설계 및 제작</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>🛠️ 도구 활용</h3>
+                        <ul class="skill-list">
+                            <li>범용 EDA/CAD/문서화 도구 숙련</li>
+                            <li>신규 툴 빠른 습득</li>
+                            <li>문제 해결 도구 활용</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Coursework Section -->
+            <section id="coursework" class="section">
+                <h2 class="section-title">관련 과목</h2>
+                <div class="coursework-grid">
+                    <div class="course-card">
+                        <h3 class="course-title">공학설계입문</h3>
+                        <p class="course-description">HW–FW 연동 실습, LED/모터/센서 제어 구현을 통한 하드웨어-소프트웨어 통합 설계 경험</p>
+                    </div>
+                    <div class="course-card">
+                        <h3 class="course-title">물리학</h3>
+                        <p class="course-description">전자기학·회로 관련 개념 심화(질문–토론 중심), 문제 해결 능력 향상</p>
+                    </div>
+                    <div class="course-card">
+                        <h3 class="course-title">수학</h3>
+                        <p class="course-description">미적분 필수 역량 확보, 선형대수 독학(개념→암기→적용 프로세스)</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Soft Skills Section -->
+            <section id="soft-skills" class="section">
+                <h2 class="section-title">소프트 스킬</h2>
+                <div class="soft-skills-grid">
+                    <div class="soft-skill-card">
+                        <div class="soft-skill-icon">🎤</div>
+                        <h3 class="soft-skill-title">발표/커뮤니케이션</h3>
+                        <p class="soft-skill-description">기술 내용 명확·설득력 전달, 시각 자료·데모 활용</p>
+                    </div>
+                    <div class="soft-skill-card">
+                        <div class="soft-skill-icon">📝</div>
+                        <h3 class="soft-skill-title">문서화</h3>
+                        <p class="soft-skill-description">기술 문서·보고서 체계적 작성, 독자 수준 맞춤 설명</p>
+                    </div>
+                    <div class="soft-skill-card">
+                        <div class="soft-skill-icon">🔍</div>
+                        <h3 class="soft-skill-title">문제 해결</h3>
+                        <p class="soft-skill-description">분석–가설–실험–검증의 절차적 접근, 빠른 시행착오</p>
+                    </div>
+                    <div class="soft-skill-card">
+                        <div class="soft-skill-icon">📚</div>
+                        <h3 class="soft-skill-title">자기주도 학습</h3>
+                        <p class="soft-skill-description">교수 피드백 기반 누적 학습, 신규 기술의 빠른 습득·적용</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Objective Section -->
+            <section id="objective" class="section">
+                <h2 class="section-title">목표</h2>
+                <div class="objective-card">
+                    <p class="objective-text">
+                        임베디드 제어·센서 융합으로 <strong>극한 환경에서도 신뢰성 있게 작동하는 시스템</strong> 개발. 학부 과정에서 회로/펌웨어/제어 이론과 실습을 균형 있게 강화하여 로봇/산업·군용 장비 제어 분야 <strong>Junior 엔지니어</strong> 진입 역량 확보.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Keywords Section -->
+            <section class="section">
+                <h2 class="section-title">핵심 키워드</h2>
+                <div class="keywords-container">
+                    <h3 class="keywords-title">ATS Keywords</h3>
+                    <div class="keywords-list">
+                        <span class="keyword-tag">Python</span>
+                        <span class="keyword-tag">Firmware</span>
+                        <span class="keyword-tag">Embedded</span>
+                        <span class="keyword-tag">Sensors</span>
+                        <span class="keyword-tag">Actuators</span>
+                        <span class="keyword-tag">Control</span>
+                        <span class="keyword-tag">PCB</span>
+                        <span class="keyword-tag">CAD</span>
+                        <span class="keyword-tag">3D Modeling</span>
+                        <span class="keyword-tag">Reliability</span>
+                        <span class="keyword-tag">Robotics</span>
+                        <span class="keyword-tag">E2E Development</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">
+                    포트폴리오/코드 스니펫/회로·케이스 설계 산출물 제출 가능(요청 시)<br>
+                    공고 형식에 따라 개인정보 배치·형식 조정 가능
+                </p>
+                <div class="footer-links">
+                    <a href="mailto:neoartmin@gmail.com" class="footer-link">이메일</a>
+                    <a href="tel:010-6299-5881" class="footer-link">전화</a>
+                    <span class="footer-link">업데이트: 2025-09-26</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add active class to navigation links on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
